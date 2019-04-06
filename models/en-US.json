@@ -1,0 +1,67 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "bobby",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "HelloWorldIntent",
+                  "slots": [],
+                  "samples": [
+                      "hello"
+                  ]
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "GetInventoryIntent",
+                  "slots": [
+                      {
+                          "name": "productname",
+                          "type": "productname"
+                      }
+                  ],
+                  "samples": [
+                      "get {productname}",
+                      "Get product {productname}"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "name": "productname",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "dog"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "cat"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "fish"
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
+  }
+}
