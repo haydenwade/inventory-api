@@ -3,8 +3,9 @@ var router = express.Router();
 
 let inventory = {
     'fish':{
+        name:'fish',
         price:10,
-        serialNum: 'ABC123'
+        room: 'bathroom'
     }
 };
 
