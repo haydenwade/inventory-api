@@ -51,6 +51,27 @@ const GetInventoryIntentHandler = {
   },
 };
 
+const AddInventoryIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'AddInventoryIntent';
+  },
+  async handle(handlerInput) {
+    const product = {
+      name:handlerInput.requestEnvelope.request.intent.slots.productname.value,
+      room: handlerInput.requestEnvelope.request.intent.slots.productroom.value,
+      price: handlerInput.requestEnvelope.request.intent.slots.productvalue.value
+    };
+    await api.createProduct(product);
+    
+    const speechText = `I have add ${product.name}`;
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('Hello World', speechText)
+      .getResponse();
+  },
+};
+
 const HelpIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -117,7 +138,8 @@ exports.handler = skillBuilder
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler,
-    GetInventoryIntentHandler
+    GetInventoryIntentHandler,
+    AddInventoryIntentHandler
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();
