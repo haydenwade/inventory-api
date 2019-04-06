@@ -10,7 +10,8 @@ let inventory = {
 
 //Postman
 /*
-GET http://localhost:3010/inventory/cat
+GET http://localhost:3010/inventory/fish
+or GET https://anas-proj.herokuapp.com/inventory/fish
 */
 router.get('/inventory/:id', function(req,res){
     res.status(200);
@@ -20,6 +21,7 @@ router.get('/inventory/:id', function(req,res){
 //Postman
 /*
 POST http://localhost:3010/inventory
+or POST https://anas-proj.herokuapp.com/inventory
 {
 	"name":"cat",
 	"price":15,
